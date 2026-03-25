@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radial-gradient {
+  background-image: radial-gradient(
+    circle at top,
+    hsl(214, 47%, 23%) 20%,
+    hsl(237, 48%, 15%) 100%
+  );
+}
