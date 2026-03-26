@@ -4,14 +4,14 @@ import scissors from "../assets/images/icon-scissors.svg";
 import { useState, useEffect } from "react";
 import triangle from "../assets/images/bg-triangle.svg";
 
-function Buttons() {
+function Buttons({ setScore }) {
   const [isScissors, setIsScissors] = useState(false);
   const [isPaper, setIsPaper] = useState(false);
   const [isRock, setIsRock] = useState(false);
 
   const [housePick, setHousePick] = useState(0);
 
-  const [score, setScore] = useState(0);
+  const [win, setWin] = useState("");
 
   function playAgain() {
     setIsScissors(false);
@@ -25,8 +25,8 @@ function Buttons() {
       <>
         <div>
           <div className="w-36 h-12  rounded-lg flex flex-col items-center justify-center">
-            <h1 className="text-4xl w-56 text-white  text-center font-bold">
-              YOU WIN
+            <h1 className="text-4xl w-56 text-white  text-center font-bold uppercase">
+              YOU {win}
             </h1>
 
             <button
@@ -47,23 +47,28 @@ function Buttons() {
       (isPaper && housePick === 3) ||
       (isRock && housePick === 2)
     ) {
+      console.log("win");
+      setWin("win");
+
       setScore((prev) => prev + 1);
     } else if (
       (isPaper && housePick === 2) ||
       (isRock && housePick === 1) ||
       (isScissors && housePick === 3)
     ) {
+      console.log("lose");
+      setWin("lose");
+
       setScore((prev) => prev - 1);
+    } else {
+      console.log("draw");
+      setWin("draw");
     }
   }
 
   useEffect(() => {
     checkWinner();
   }, [housePick]);
-
-  useEffect(() => {
-    console.log(score);
-  }, [score]);
 
   function getRandomInt(max) {
     setHousePick(Math.floor(Math.random() * max) + 1);

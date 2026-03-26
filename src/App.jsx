@@ -7,16 +7,18 @@ import { useState } from "react";
 function App() {
   const [ruleshow, setRuleshow] = useState(false);
 
+  const [score, setScore] = useState(0);
+
   return (
     <>
       <div className="relative w-full h-screen radial-gradient">
         <div className="w-full h-full pt-10 gap-10 flex flex-col justify-start items-center">
           <div>
-            <ScoreBar />
+            <ScoreBar score={score} />
           </div>
 
           <div>
-            <Buttons />
+            <Buttons setScore={setScore} />
           </div>
           <div className="absolute bottom-10 right-10 ">
             <button
