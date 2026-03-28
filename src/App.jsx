@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <div className="relative w-full h-screen radial-gradient">
+      <div className="relative w-full h-screen radial-gradient overflow-hidden">
         <div className="w-full h-full pt-10 gap-10 flex flex-col justify-start items-center">
           <div>
             <ScoreBar score={score} />
@@ -35,9 +35,9 @@ function App() {
         {ruleshow && (
           <div
             onClick={() => setRuleshow(false)}
-            className="absolute w-full h-full bg-black/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+            className="absolute w-full h-full  bg-black/50 z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
           >
-            <div className="w-[450px] h-[450px] bg-white flex flex-col items-center justify-between p-10 rounded-lg">
+            <div className="w-[450px] h-[450px] bg-white  flex flex-col items-center justify-between p-10 rounded-lg">
               <div className="w-full    flex items-center justify-between">
                 <h1 className="text-navy-900 text-3xl font-semibold">RULES</h1>
                 <img

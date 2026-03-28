@@ -24,13 +24,13 @@ function Buttons({ setScore }) {
     return (
       <>
         <div>
-          <div className="w-36 h-12  rounded-lg flex flex-col items-center justify-center">
-            <h1 className="text-4xl w-56 text-white  text-center font-bold uppercase">
+          <div className=" h-12  rounded-lg flex flex-col items-center justify-center">
+            <h1 className="text-5xl   text-white  text-center font-bold uppercase">
               YOU {win}
             </h1>
 
             <button
-              className=" w-44   py-4 bg-white rounded-lg mt-4 "
+              className=" w-56   py-3 bg-white rounded-lg mt-4 hover:text-red-600 font-semibold "
               onClick={playAgain}
             >
               Play Again
@@ -105,40 +105,73 @@ function Buttons({ setScore }) {
   if (isScissors || isPaper || isRock) {
     return (
       <>
-        <div className="   w-[800px] h-[500px] flex items-center justify-around">
-          <div className="grid  h-[400px]">
+        <div className="    w-full h-[500px] flex items-center justify-around">
+          <div className="grid   h-[400px]">
             <h1 className="text-xl text-white  text-center">YOU PICKED</h1>
             {isScissors && (
-              <div className=" rounded-full   bg-orange-500 w-56 h-56  flex items-center justify-center border-b-[12px] border-orange-600">
-                <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
-                  <img src={scissors} alt="scissors   " />
+              <div
+                className={` ${win == "win" ? "bg-gray-600/40 w-[500px] h-[500px] rounded-full outline outline-gray-600/20 outline-[80px]" : " w-[500px] h-[500px]"}   w-[500px] h-[500px]  flex items-center justify-center`}
+              >
+                <div
+                  className={`   ${win == "win" ? "bg-gray-600/40 w-[360px] h-[360px] rounded-full" : ""} flex items-center justify-center`}
+                >
+                  <div className=" rounded-full w-56 h-56   bg-orange-500   flex items-center justify-center border-b-[12px] border-orange-600">
+                    <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
+                      <img src={scissors} alt="scissors   " />
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
             {isPaper && (
-              <div className=" rounded-full   bg-blue-500 w-56 h-56  flex items-center justify-center border-b-[12px] border-blue-700">
-                <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
-                  <img src={paper} alt="paper   " />
+              <div
+                className={` ${win == "win" ? "bg-gray-600/40 w-[500px] h-[500px] rounded-full outline outline-gray-600/20 outline-[80px]" : " w-[500px] h-[500px]"}   w-[500px] h-[500px]  flex items-center justify-center`}
+              >
+                <div
+                  className={`   ${win == "win" ? "bg-gray-600/40 w-[360px] h-[360px] rounded-full" : ""} flex items-center justify-center`}
+                >
+                  <div className=" rounded-full   bg-blue-500  w-56 h-56  flex items-center justify-center border-b-[12px] border-blue-700">
+                    <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
+                      <img src={paper} alt="paper   " />
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
             {isRock && (
-              <div className=" rounded-full   bg-red-600 w-56 h-56  flex items-center justify-center border-b-[12px] border-red-800">
-                <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
-                  <img src={rock} alt="rock   " />
+              <div
+                className={` ${win == "win" ? "bg-gray-600/40 w-[500px] h-[500px] rounded-full outline outline-gray-600/20 outline-[80px]" : " w-[500px] h-[500px]"}   w-[500px] h-[500px]  flex items-center justify-center`}
+              >
+                <div
+                  className={`   ${win == "win" ? "bg-gray-600/40 w-[360px] h-[360px] rounded-full" : ""} flex items-center justify-center`}
+                >
+                  <div className="  rounded-full   bg-red-600 w-56 h-56  flex items-center justify-center border-b-[12px] border-red-800">
+                    <div className="w-4/5 h-4/5 bg-white cursor-pointer scale-[0.98] border-t-[12px] rounded-full flex items-center justify-center">
+                      <img src={rock} alt="rock   " />
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
           </div>
-
-          <Result />
+          <div
+            className=" h-full flex items-center
+           justify-center  pt-52 z-10"
+          >
+            <Result />
+          </div>
 
           <div className="grid  h-[400px]">
             <h1 className="text-xl text-white  text-center">
               THE HOUSE PICKED
             </h1>
-            <div className=" w-56 h-56 rounded-full flex items-center justify-center">
-              <div className="bg-black/20 w-56 h-56 rounded-full">
+
+            <div
+              className={` ${win == "lose" ? "bg-gray-600/40 w-[500px] h-[500px] outline outline-gray-600/20 outline-[80px]" : " w-[500px] h-[500px]"}  w-56 h-56 rounded-full flex items-center justify-center`}
+            >
+              <div
+                className={`   ${win == "lose" ? "bg-gray-600/40 w-[360px] h-[360px]" : ""} bg-black/20 w-56 h-56 rounded-full flex items-center justify-center`}
+              >
                 {housePickImage()}
               </div>
             </div>
@@ -150,7 +183,7 @@ function Buttons({ setScore }) {
 
   return (
     <>
-      <div className="relative w-[500px] h-[500px]  select-none  flex items-center justify-center  ">
+      <div className="relative w-[500px] h-[500px]  mt-[100px] select-none  flex items-center justify-center  ">
         <img src={triangle} alt="triangle" />
 
         <div
