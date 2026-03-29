@@ -1,8 +1,8 @@
-import rock from "../assets/images/icon-rock.svg";
-import paper from "../assets/images/icon-paper.svg";
-import scissors from "../assets/images/icon-scissors.svg";
+import rock from "../../public/images/icon-rock.svg";
+import paper from "../../public/images/icon-paper.svg";
+import scissors from "../../public/images/icon-scissors.svg";
 import { useState, useEffect } from "react";
-import triangle from "../assets/images/bg-triangle.svg";
+import triangle from "../../public/images/bg-triangle.svg";
 
 function Buttons({ setScore }) {
   const [isScissors, setIsScissors] = useState(false);

@@ -1,7 +1,7 @@
 import ScoreBar from "./componets/ScoreBar";
 import Buttons from "./componets/Buttons";
-import rules from "./assets/images/image-rules.svg";
-import close from "./assets/images/icon-close.svg";
+import rules from "../public/images/image-rules.svg";
+import close from "../public/images/icon-close.svg";
 import { useState } from "react";
 
 function App() {
